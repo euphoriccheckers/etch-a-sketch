@@ -4,6 +4,8 @@ let btn = document.createElement('button');
 btn.innerText = 'Change Grid Size';
 document.body.insertBefore(btn, container);
 
+let isDrawing = false;
+
 for (let i = 0; i < 16; i++) {
     row = document.createElement('div');
     row.classList.add('row');
@@ -16,12 +18,20 @@ for (let i = 0; i < 16; i++) {
     container.appendChild(row);
 }
 
-container.addEventListener('mouseover', (e) => {
-    e.target.classList.remove('hoverOut');
+container.addEventListener('mousedown', (e) => {
     e.target.classList.add('hoverIn');
+    isDrawing = true;
 });
 
-container.addEventListener('mouseout', (e) => {
-    e.target.classList.remove('hoverIn');
-    e.target.classList.add('hoverOut');
+container.addEventListener('mouseover', (e) => {
+    if (isDrawing) {
+        e.target.classList.add('hoverIn');
+    }
 });
+
+container.addEventListener('mouseup', (e) => {
+    if (isDrawing) {
+        e.target.classList.add('hoverIn');
+        isDrawing = false;
+    }
+})
