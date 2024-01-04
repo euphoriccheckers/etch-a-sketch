@@ -65,3 +65,5 @@ clearBtn.addEventListener('click', (e) => {
         tiles[i].classList.remove('hoverIn');
     }
 })
+
+etch(16);
