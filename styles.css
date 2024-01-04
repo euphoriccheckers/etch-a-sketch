@@ -17,7 +17,6 @@ body {
     height: 700px;
     display: flex;
     flex-direction: column;
-    border: solid black 1px;
 }
 
 .row {
@@ -28,4 +27,12 @@ body {
 .tile {
     border: solid black 1px;
     flex-grow: 1;
+}
+
+.hoverIn {
+    background-color: red;
+}
+
+.hoverOut {
+    background-color: aqua;
 }
