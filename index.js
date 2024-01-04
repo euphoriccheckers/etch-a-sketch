@@ -51,10 +51,10 @@ btn.addEventListener('click', (e) => {
 
     num = prompt('Enter number of rows/columns - Max 100');
 
-    while (num > 100) {
+    while (num > 100 || isNaN(num)) {
         num = prompt('Enter number of rows/columns - Max 100');
     }
-    
+
     etch(num);
 })
 
