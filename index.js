@@ -1,8 +1,12 @@
 let container = document.querySelector('.container');
 
 let btn = document.createElement('button');
-btn.innerText = 'Change Grid Size';
+btn.innerText = 'Set Grid Size';
 document.body.insertBefore(btn, container);
+
+let clearBtn = document.createElement('button');
+clearBtn.innerText = 'Clear Grid';
+document.body.insertBefore(clearBtn, container);
 
 let isDrawing = false;
 
@@ -46,6 +50,13 @@ btn.addEventListener('click', (e) => {
     }
 
     num = prompt('Enter number of rows/columns - Max 100');
-    
     etch(num);
+})
+
+clearBtn.addEventListener('click', (e) => {
+    let tiles = document.getElementsByClassName('tile');
+
+    for(let i = 0; i < tiles.length; i++) {
+        tiles[i].classList.remove('hoverIn');
+    }
 })
