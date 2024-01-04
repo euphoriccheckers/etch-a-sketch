@@ -6,16 +6,18 @@ document.body.insertBefore(btn, container);
 
 let isDrawing = false;
 
-for (let i = 0; i < 16; i++) {
-    row = document.createElement('div');
-    row.classList.add('row');
-
-    for (let j = 0; j < 16; j++) {
-        let tile = document.createElement('div');
-        tile.classList.add('tile');
-        row.appendChild(tile);
+function etch (num) {
+    for (let i = 0; i < num; i++) {
+        row = document.createElement('div');
+        row.classList.add('row');
+    
+        for (let j = 0; j < num; j++) {
+            let tile = document.createElement('div');
+            tile.classList.add('tile');
+            row.appendChild(tile);
+        }
+        container.appendChild(row);
     }
-    container.appendChild(row);
 }
 
 container.addEventListener('mousedown', (e) => {
@@ -34,4 +36,16 @@ container.addEventListener('mouseup', (e) => {
         e.target.classList.add('hoverIn');
         isDrawing = false;
     }
+})
+
+btn.addEventListener('click', (e) => {
+    let child = container.lastElementChild;
+    while (child) {
+        container.removeChild(child);
+        child = container.lastElementChild;
+    }
+
+    num = prompt('Enter number of rows/columns - Max 100');
+    
+    etch(num);
 })
